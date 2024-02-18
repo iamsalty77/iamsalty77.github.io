@@ -17,7 +17,7 @@ WITH절을 사용하는 방법은 다음과 같습니다
 {% highlight ruby %}
 WITH JINYOUNG AS
 (
-   SELECT '머리가 크다' FROM DUAL
+   SELECT '잘생겼습니다' FROM DUAL
 )
 
 {% endhighlight %}
@@ -26,7 +26,7 @@ WITH JINYOUNG AS
 
 SELECT * FROM JINYOUNG; 을 쳤을때
 
-머리가 크다 라고 나옵니다
+잘생겼습니다 라고 나옵니다
 
 한번만 쓰고 마는 서브쿼리를 WITH절로 정의해 두는 경우는 드뭅니다
 
