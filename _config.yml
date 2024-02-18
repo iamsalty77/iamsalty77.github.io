@@ -1,6 +1,5 @@
 # Setup
-title: Dark Poole
-url: https://getpoole.com
+title: 김진영의 기록보관소
 paginate: 1
 baseurl: ""
 permalink: pretty
@@ -44,5 +43,3 @@ nav:
   - title: Blog
     url: /archive
 
-  - title: About
-    url: /about
