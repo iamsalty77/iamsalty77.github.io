@@ -1,81 +1,128 @@
-<div align="center">
+# Dark Poole
 
-  # Chirpy Jekyll Theme
+![Dark Poole](https://user-images.githubusercontent.com/13270895/89133355-26b3af80-d4e9-11ea-81cd-eacaa9c78320.png)
 
-  A minimal, responsive, and feature-rich Jekyll theme for technical writing.
+Dark Poole is a permanent dark theme of the Poole theme by [@mdo](https://github.com/mdo). I made the theme darker, inspired by [Derek Kedziora's site](https://derekkedziora.com/). Unlike default Poole that utilizes CSS media queries to activate dark mode, the theme will stay dark regardless of the user's preference.
 
-  [![Gem Version](https://img.shields.io/gem/v/jekyll-theme-chirpy?color=brightgreen)][gem]&nbsp;
-  [![CI](https://github.com/cotes2020/jekyll-theme-chirpy/actions/workflows/ci.yml/badge.svg?branch=master&event=push)][ci]&nbsp;
-  [![Codacy Badge](https://app.codacy.com/project/badge/Grade/4e556876a3c54d5e8f2d2857c4f43894)][codacy]&nbsp;
-  [![GitHub license](https://img.shields.io/github/license/cotes2020/jekyll-theme-chirpy.svg)][license]&nbsp;
-  [![996.icu](https://img.shields.io/badge/link-996.icu-%23FF4D5B.svg)](https://996.icu)
+- I added a navbar that is easily customizable. Check out [Development](#development) to see how.
+- I also got rid of the "tagline" in the navbar. I think it looks cleaner without it.
+- Finally, I changed the default font size to 20px. I have 20/20 vision and still thought the original font size was too small.
 
-  [**Live Demo** →][demo]
+That's it! I tried to be least intrusive as possible to the Poole code base.
 
-  [![Devices Mockup](https://chirpy-img.netlify.app/commons/devices-mockup.png)][demo]
+**I noticed that Poole's documentation is slightly outdated and misleading. This documentation will try to address most, if not all, of these issues.**
 
-</div>
+---
 
-## Features
+## Contents
 
-- Dark / Light Theme Mode
-- Localized UI language
-- Pinned Posts on Home Page
-- Hierarchical Categories
-- Trending Tags
-- Table of Contents
-- Last Modified Date
-- Syntax Highlighting
-- Mathematical Expressions
-- Mermaid Diagrams & Flowcharts
-- Dark / Light Mode Images
-- Embed Videos
-- Disqus / Giscus / Utterances Comments
-- Built-in Search
-- Atom Feeds
-- PWA
-- Google Analytics / GoatCounter
-- SEO & Performance Optimization
+- [Usage](#usage)
+- [Development](#development)
+- [Author](#author)
+- [License](#license)
 
-## Documentation
+## Usage
 
-To learn how to use, develop, and upgrade the project, please refer to the [Wiki][wiki].
+### 1. Install dependencies
 
-## Contributing
+Poole is built on Jekyll and uses its built-in SCSS compiler to generate our CSS. Before getting started, you'll need to install the Jekyll gem and related dependencies:
 
-Contributions (_pull requests_, _issues_, and _discussions_) are what make the open-source community such an amazing place
-to learn, inspire, and create. Any contributions you make are greatly appreciated.
-For details, see the "[Contributing Guidelines][contribute-guide]".
+```bash
+$ gem install jekyll jekyll-gist jekyll-sitemap jekyll-seo-tag
+```
 
-## Credits
+### 2. Install bundler
 
-### Contributors
+You must have bundler installed. If you already have bundler installed, please skip this step.
 
-Thanks to [all the contributors][contributors] involved in the development of the project!
+```bash
+# Update Rubygems
+$ gem update --system
+# Update bundler
+$ gem install bundler
+```
 
-[![all-contributors](https://contrib.rocks/image?repo=cotes2020/jekyll-theme-chirpy&columns=16)][contributors]
-<sub> —— Made with [contrib.rocks](https://contrib.rocks)</sub>
+### 3. Running locally
 
-### Third-Party Assets
+To see your Jekyll site with Poole applied, start a Jekyll server. In Terminal, from `/dark-poole` (or whatever your Jekyll site's root directory is named):
 
-This project is built on the [Jekyll][jekyllrb] ecosystem and some [great libraries][lib], and is developed using [VS Code][vscode] as well as tools provided by [JetBrains][jetbrains] under a non-commercial open-source software license.
+```bash
+$ bundle exec jekyll serve
+```
 
-The avatar and favicon for the project's website are from [ClipartMAX][clipartmax].
+Open <http://localhost:4000> in your browser, and voilà.
+
+### 4. Serving it up
+
+If you host your code on GitHub, you can use [GitHub Pages](https://pages.github.com) to host your project.
+
+1. Fork this repo and switch to the `gh-pages` branch.
+1. If you're [using a custom domain name](https://help.github.com/articles/setting-up-a-custom-domain-with-github-pages), modify the `CNAME` file to point to your new domain.
+1. If you're not using a custom domain name, **modify the `url` in `_config.yml`** to point to your GitHub Pages URL. Example: for a site hosted at `username.github.io`, use `http://username.github.io`.
+1. If you want to use your repo name as a base url, **set the `url`** to your repo link and **set the `baseurl`** to your repo name in **`_config.yml`**. Example: for site hosted on `https://username.github.io/dark-poole`, set `url` as `https://username.github.io/dark-poole` and `baseurl` as `/dark-poole`.
+1. Done! Head to your GitHub Pages URL or custom domain.
+
+No matter your production or hosting setup, be sure to verify the `baseurl` option file and `CNAME` settings. Not applying this correctly can mean broken styles on your site.
+
+### 5. Pagination for sites with base urls
+
+If you are using a base url for your site, (for example, hosted on `https://username.github.io/dark-poole`) you have to make some changes to get jekyll-pagination to work correctly:
+
+In `_config.yml`, add this line:
+
+```yaml
+paginate_path: "/baseurl/page:num/"
+```
+
+In `archive.md`, add `{{ site.baseurl }}` before `{{ post.url }}`
+
+```html
+<!-- Add "{{ site.baseurl }}" -->
+<li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
+```
+
+In `index.html`, remove the `prepend:`:
+
+```html
+<!-- Remove "prepend:" in "prepend: relative_url" -->
+<a
+  class="pagination-item newer"
+  href="{{ paginator.previous_page_path | relative_url }}"
+  >Newer</a
+>
+```
+
+## Development
+
+Poole has two branches, but only one is used for active development.
+
+- `master` for development. **All pull requests should be to submitted against `master`.**
+- `gh-pages` for hosted demo **Please avoid using this branch.**
+
+CSS is handled via Jeykll's built-in Sass compiler. Source Sass files are located in `_sass/`, included into `styles.scss`, and compile to `styles.css`.
+
+### Customize Navbar
+
+You can easily customize the navbar by tweaking the `_config.yml` file. Simply change the title and url of each of the nav elements, or add more. The order will be preserved in the site.
+
+```yaml
+nav:
+  - title: Blog
+    url: /archive
+
+  - title: About
+    url: /about
+```
+
+## Author
+
+**Mark Otto**
+
+- <https://github.com/mdo>
+- <https://twitter.com/mdo>
 
 ## License
 
-This project is published under [MIT License][license].
+Open sourced under the [MIT license](LICENSE.md).
 
-[gem]: https://rubygems.org/gems/jekyll-theme-chirpy
-[ci]: https://github.com/cotes2020/jekyll-theme-chirpy/actions/workflows/ci.yml?query=event%3Apush+branch%3Amaster
-[codacy]: https://app.codacy.com/gh/cotes2020/jekyll-theme-chirpy/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade
-[license]: https://github.com/cotes2020/jekyll-theme-chirpy/blob/master/LICENSE
-[jekyllrb]: https://jekyllrb.com/
-[clipartmax]: https://www.clipartmax.com/middle/m2i8b1m2K9Z5m2K9_ant-clipart-childrens-ant-cute/
-[demo]: https://cotes2020.github.io/chirpy-demo/
-[wiki]: https://github.com/cotes2020/jekyll-theme-chirpy/wiki
-[contribute-guide]: https://github.com/cotes2020/jekyll-theme-chirpy/blob/master/docs/CONTRIBUTING.md
-[contributors]: https://github.com/cotes2020/jekyll-theme-chirpy/graphs/contributors
-[lib]: https://github.com/cotes2020/chirpy-static-assets
-[vscode]: https://code.visualstudio.com/
-[jetbrains]: https://www.jetbrains.com/?from=jekyll-theme-chirpy
+<3
