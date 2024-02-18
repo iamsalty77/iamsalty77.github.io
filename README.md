@@ -1,128 +1,61 @@
-# Dark Poole
+# Klisé
 
-![Dark Poole](https://user-images.githubusercontent.com/13270895/89133355-26b3af80-d4e9-11ea-81cd-eacaa9c78320.png)
+Klisé is minimalist Jekyll theme for running a personal site and blog running on Jekyll.<br>
+For demo <a href="https://klise.now.sh" target="_blank" rel="noopener">klise.now.sh</a>
 
-Dark Poole is a permanent dark theme of the Poole theme by [@mdo](https://github.com/mdo). I made the theme darker, inspired by [Derek Kedziora's site](https://derekkedziora.com/). Unlike default Poole that utilizes CSS media queries to activate dark mode, the theme will stay dark regardless of the user's preference.
+## Features
 
-- I added a navbar that is easily customizable. Check out [Development](#development) to see how.
-- I also got rid of the "tagline" in the navbar. I think it looks cleaner without it.
-- Finally, I changed the default font size to 20px. I have 20/20 vision and still thought the original font size was too small.
+- [x] Light & Dark Mode support :waxing_crescent_moon:
+- [x] Customizable (using `.scss`)
+- [x] Responsive (desktop, tab and mobile)
+- [x] Mobile First Design
+- [x] SEO Optimized
+- [x] Images of post Organized ([`jekyll-postfiles`](https://github.com/nhoizey/jekyll-postfiles))
+- [x] Generate Sitemap ([`jekyll-sitemap`](https://github.com/jekyll/jekyll-sitemap))
+- [x] RSS Feed ([`jekyll-feed`](https://github.com/jekyll/jekyll-feed))
+- [x] Syntax Highlighter ([`rouge`](https://github.com/rouge-ruby/rouge))
+- [x] Next & Previous Post
+- [x] Comment layout, enable in frontmatter if you wish
+- [x] Google analytics
+- [x] HTML Minify ([`jekyll-compress-html`](https://github.com/penibelst/jekyll-compress-html))
+- [x] W3C **Validated**
+- [x] Lighthouse and PageSpeed **Passed**
 
-That's it! I tried to be least intrusive as possible to the Poole code base.
+![Lighthouse Result](./lighthouse.png)
 
-**I noticed that Poole's documentation is slightly outdated and misleading. This documentation will try to address most, if not all, of these issues.**
+## Backlogs
 
----
+- [ ] Intergrated with PhotoSwipe.
+- [ ] Add schema.org meta information.
+- [ ] Transform class selector to BEM metodology.
 
-## Contents
+## Installation
 
-- [Usage](#usage)
-- [Development](#development)
-- [Author](#author)
-- [License](#license)
-
-## Usage
-
-### 1. Install dependencies
-
-Poole is built on Jekyll and uses its built-in SCSS compiler to generate our CSS. Before getting started, you'll need to install the Jekyll gem and related dependencies:
-
-```bash
-$ gem install jekyll jekyll-gist jekyll-sitemap jekyll-seo-tag
-```
-
-### 2. Install bundler
-
-You must have bundler installed. If you already have bundler installed, please skip this step.
+Run local server:
 
 ```bash
-# Update Rubygems
-$ gem update --system
-# Update bundler
-$ gem install bundler
-```
-
-### 3. Running locally
-
-To see your Jekyll site with Poole applied, start a Jekyll server. In Terminal, from `/dark-poole` (or whatever your Jekyll site's root directory is named):
-
-```bash
+$ git clone https://github.com/piharpi/jekyll-klise.git
+$ cd jekyll-klise
+$ bundle install
 $ bundle exec jekyll serve
 ```
 
-Open <http://localhost:4000> in your browser, and voilà.
+Navigate to `localhost:4000`. You're Welcome, Fork and be Stargazer.
 
-### 4. Serving it up
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/piharpi/jekyll-klise) [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/piharpi/jekyll-klise) [![Deploy to Azure button](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/?feature.customportal=false&WT.mc_id=javascript-0000-jopapa#create/Microsoft.StaticApp)
 
-If you host your code on GitHub, you can use [GitHub Pages](https://pages.github.com) to host your project.
+## Limitation
 
-1. Fork this repo and switch to the `gh-pages` branch.
-1. If you're [using a custom domain name](https://help.github.com/articles/setting-up-a-custom-domain-with-github-pages), modify the `CNAME` file to point to your new domain.
-1. If you're not using a custom domain name, **modify the `url` in `_config.yml`** to point to your GitHub Pages URL. Example: for a site hosted at `username.github.io`, use `http://username.github.io`.
-1. If you want to use your repo name as a base url, **set the `url`** to your repo link and **set the `baseurl`** to your repo name in **`_config.yml`**. Example: for site hosted on `https://username.github.io/dark-poole`, set `url` as `https://username.github.io/dark-poole` and `baseurl` as `/dark-poole`.
-1. Done! Head to your GitHub Pages URL or custom domain.
+- Since [`jekyll-postfiles`](https://github.com/nhoizey/jekyll-postfiles#compatibility) plugin isn't supported by github pages, this cause will make your site problems, path broken or post images won't show up, you can host alternatively using likes [netlify.com](https://netlify.com), [vercel.com](https://vercel.com), [azure.com](https://docs.microsoft.com/azure/static-web-apps/publish-jekyll) or [surge.sh](https://surge.sh) services, which support 3rd party.
 
-No matter your production or hosting setup, be sure to verify the `baseurl` option file and `CNAME` settings. Not applying this correctly can mean broken styles on your site.
+## Contributing
 
-### 5. Pagination for sites with base urls
+If you see any typos or formatting errors in a post, or want to helping reduce backlogs or any other issue that needs to be addressed, please do not hesitate to open a pull request and fix it!, please read [contributing](./CONTRIBUTING.md) before PR.
 
-If you are using a base url for your site, (for example, hosted on `https://username.github.io/dark-poole`) you have to make some changes to get jekyll-pagination to work correctly:
+Yeaaa feel free to open a pull request.
+## Support
 
-In `_config.yml`, add this line:
-
-```yaml
-paginate_path: "/baseurl/page:num/"
-```
-
-In `archive.md`, add `{{ site.baseurl }}` before `{{ post.url }}`
-
-```html
-<!-- Add "{{ site.baseurl }}" -->
-<li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
-```
-
-In `index.html`, remove the `prepend:`:
-
-```html
-<!-- Remove "prepend:" in "prepend: relative_url" -->
-<a
-  class="pagination-item newer"
-  href="{{ paginator.previous_page_path | relative_url }}"
-  >Newer</a
->
-```
-
-## Development
-
-Poole has two branches, but only one is used for active development.
-
-- `master` for development. **All pull requests should be to submitted against `master`.**
-- `gh-pages` for hosted demo **Please avoid using this branch.**
-
-CSS is handled via Jeykll's built-in Sass compiler. Source Sass files are located in `_sass/`, included into `styles.scss`, and compile to `styles.css`.
-
-### Customize Navbar
-
-You can easily customize the navbar by tweaking the `_config.yml` file. Simply change the title and url of each of the nav elements, or add more. The order will be preserved in the site.
-
-```yaml
-nav:
-  - title: Blog
-    url: /archive
-
-  - title: About
-    url: /about
-```
-
-## Author
-
-**Mark Otto**
-
-- <https://github.com/mdo>
-- <https://twitter.com/mdo>
-
+[![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/W7W7MJ4X) [![saweria.co](./assets/img/saweria-button.png)](https://saweria.co/piharpi)
 ## License
 
-Open sourced under the [MIT license](LICENSE.md).
-
-<3
+This project is open source and available under the [MIT License](LICENSE).
