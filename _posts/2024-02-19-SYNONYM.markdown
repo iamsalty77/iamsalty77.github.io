@@ -18,19 +18,19 @@ SYNONYM은 보안 및 편의성 측면에서도 유용하게 사용될 수 있�
 
 예를 들어, 다음과 같은 상황에서 SYNONYM이 유용하게 사용될 수 있습니다
 
-1. 다른 스키마에 있는 객체에 대한 액세스 간소화: 
+<p>다른 스키마에 있는 객체에 대한 액세스 간소화</p>
 
 한 스키마에 있는 객체에 다른 스키마의 사용자가 액세스해야 할 때
 
 SYNONYM을 사용하여 사용자가 실제 객체 이름을 알 필요 없이 액세스할 수 있습니다.
 
-2. 코드 유지보수 용이성 향상: 
+<p>코드 유지보수 용이성 향상</p>
 
 데이터베이스 객체의 이름을 변경해야 할 때, 모든 참조를 찾아서 변경하는 대신
 
 SYNONYM을 업데이트하여 이전 이름과 새 이름 간의 매핑을 조정할 수 있습니다.
 
-3. 보안 및 권한 관리: 특정 사용자에게 특정 객체에 액세스할 수 있는 권한을 부여할 때
+<p>보안 및 권한 관리: 특정 사용자에게 특정 객체에 액세스할 수 있는 권한을 부여할 때</p>
 
 SYNONYM을 사용하여 실제 객체의 이름을 숨길 수 있습니다.
 
@@ -48,7 +48,9 @@ SYNONYM 사용
 SELECT * FROM emp WHERE department = 'Sales';
 {% endhighlight %}
 
-위의 쿼리는 employees 테이블 대신 emp SYNONYM을 사용하여 'Sales' 부서에 속한 직원을 검색합니다.
+위의 쿼리는 employees 테이블 대신 emp SYNONYM을 사용하여 
+
+'Sales' 부서에 속한 직원을 검색합니다.
 
 {% highlight ruby %}
 SYNONYM 업데이트
@@ -56,8 +58,10 @@ DROP SYNONYM emp;
 CREATE SYNONYM emp FOR human_resources.staff;
 {% endhighlight %}
 
-employees 테이블을 staff 테이블로 변경하는 작업입니다. 이를 위해 먼저 이전의 SYNONYM을 삭제하고
+employees 테이블을 staff 테이블로 변경하는 작업입니다. 
 
-새로운 SYNONYM을 생성합니다.
+이를 위해 먼저 이전의 SYNONYM을 삭제하고 새로운 SYNONYM을 생성합니다.
 
-이렇게 SYNONYM을 사용하면 데이터베이스 객체에 대한 액세스를 보다 간편하게 관리하고 유지보수할 수 있습니다.
+이렇게 SYNONYM을 사용하면
+
+데이터베이스 객체에 대한 액세스를 보다 간편하게 관리하고 유지보수할 수 있습니다.
