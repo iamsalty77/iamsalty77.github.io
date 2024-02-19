@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "NVL, NULLIF 에 대하여"
+title:  "NVL, NULLIF"
 date:   2024-02-14 21:06:18 +0900
 categories: jekyll update
 ---
