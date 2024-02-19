@@ -1,7 +1,7 @@
 # Site settings
 title: 김진영의 기록보관소 # site title
 description: >- # site description
-  지식은 공유될 때 가치를 얻는다. 새로운 지식을 만나보세요 <a href="https://github.com/iamsalty77" target="_blank" rel="noopener">@github</a>.
+  지식은 공유될 때 가치를 얻는다. aaaaaaaa새로운 지식을 만나보세요 <a href="https://github.com/iamsalty77" target="_blank" rel="noopener">@github</a>.
 lang: kr-KR # default lang
 timezone: Asia/Seoul # set your timezone
 image: assets/img/ogp.png # This image used for Open Graph more info https://ogp.me/
