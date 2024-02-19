@@ -30,21 +30,23 @@ SYNONYM을 사용하여 사용자가 실제 객체 이름을 알 필요 없이 �
 
 SYNONYM을 업데이트하여 이전 이름과 새 이름 간의 매핑을 조정할 수 있습니다.
 
-<p>보안 및 권한 관리: 특정 사용자에게 특정 객체에 액세스할 수 있는 권한을 부여할 때</p>
+<p>보안 및 권한 관리</p>
+
+특정 사용자에게 특정 객체에 액세스할 수 있는 권한을 부여할 때
 
 SYNONYM을 사용하여 실제 객체의 이름을 숨길 수 있습니다.
 
 예시 SQL을 통해 SYNONYM을 설명해보겠습니다.
 
 {% highlight ruby %}
-SYNONYM 생성
+--SYNONYM 생성
 CREATE SYNONYM emp FOR human_resources.employees;
 {% endhighlight %}
 
 human_resources 스키마에 있는 employees 테이블에 대한 SYNONYM인 emp를 만듭니다.
 
 {% highlight ruby %}
-SYNONYM 사용
+--SYNONYM 사용
 SELECT * FROM emp WHERE department = 'Sales';
 {% endhighlight %}
 
@@ -53,7 +55,7 @@ SELECT * FROM emp WHERE department = 'Sales';
 'Sales' 부서에 속한 직원을 검색합니다.
 
 {% highlight ruby %}
-SYNONYM 업데이트
+--SYNONYM 업데이트
 DROP SYNONYM emp;
 CREATE SYNONYM emp FOR human_resources.staff;
 {% endhighlight %}
