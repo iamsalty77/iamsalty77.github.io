@@ -1,0 +1,53 @@
+---
+layout: post
+title:  "DISTINCT"
+date:   2024-01-15 21:06:18 +0900
+categories: jekyll update
+---
+SQL SELECT DISTINCT 문은 중복되지 않는 값만 반환하는 데 사용됩니다.
+
+예시: "Customers" 테이블에서 모든 다른 국가를 선택합니다.
+
+{% highlight ruby %}
+SELECT DISTINCT Country FROM Customers;
+{% endhighlight %}
+
+테이블 내에서 열은 종종 많은 중복 값을 포함하며 때로는 다른 (고유한) 값만 나열하려고 할 때가 있습니다.
+
+구문은 다음과 같습니다.
+
+sql
+Copy code
+{% highlight ruby %}
+SELECT DISTINCT column1, column2, ...
+FROM table_name;
+{% endhighlight %}
+
+아래는 예시에서 사용되는 Customers 테이블의 일부분입니다.
+
+<figure>
+<img src="/DISTINCT/DISTINCT.JPG" alt="DISTINCT">
+<figcaption>Customers 테이블</figcaption>
+</figure>
+
+만약 DISTINCT 키워드를 생략하면 SQL 문은 "Customers" 테이블의 모든 레코드에서 "Country" 값을 반환합니다.
+
+{% highlight ruby %}
+SELECT Country FROM Customers;
+{% endhighlight %}
+
+COUNT 함수 내에서 DISTINCT 키워드를 사용하여 서로 다른 국가의 수를 반환할 수 있습니다.
+
+
+{% highlight ruby %}
+SELECT COUNT(DISTINCT Country) FROM Customers;
+{% endhighlight %}
+
+<hr>
+참고: COUNT(DISTINCT column_name)은 Microsoft Access 데이터베이스에서 지원되지 않습니다. Microsoft Access에 대한 해결책은 다음과 같습니다.
+<hr>
+
+{% highlight ruby %}
+SELECT Count(*) AS DistinctCountries
+FROM (SELECT DISTINCT Country FROM Customers);
+{% endhighlight %}
