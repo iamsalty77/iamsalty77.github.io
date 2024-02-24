@@ -24,7 +24,7 @@ FROM table_name;
 아래는 예시에서 사용되는 Customers 테이블의 일부분입니다.
 
 <figure>
-<img src="/DISTINCT/distinct.png" alt="DISTINCT">
+<img src="distinct.png" alt="DISTINCT">
 <figcaption>Customers 테이블</figcaption>
 </figure>
 
@@ -47,6 +47,7 @@ SELECT COUNT(DISTINCT Country) FROM Customers;
 참고: COUNT(DISTINCT column_name)은 Microsoft Access 데이터베이스에서 지원되지 않습니다. Microsoft Access에 대한 해결책은 다음과 같습니다.
 <hr>
 
+<br>
 
 {% highlight ruby %}
 SELECT Count(*) AS DistinctCountries
