@@ -24,7 +24,7 @@ FROM table_name;
 아래는 예시에서 사용되는 Customers 테이블의 일부분입니다.
 
 <figure>
-<img src="/assets/img/distinct.png" alt="distinct" />
+<img src="/distinct/distinct.png" alt="distinct" />
 <figcaption>Customers 테이블</figcaption>
 </figure>
 
