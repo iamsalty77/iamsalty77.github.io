@@ -16,8 +16,6 @@ SELECT DISTINCT Country FROM Customers;
 
 구문은 다음과 같습니다.
 
-sql
-Copy code
 {% highlight ruby %}
 SELECT DISTINCT column1, column2, ...
 FROM table_name;
@@ -44,8 +42,11 @@ SELECT COUNT(DISTINCT Country) FROM Customers;
 {% endhighlight %}
 
 <hr>
+
 참고: COUNT(DISTINCT column_name)은 Microsoft Access 데이터베이스에서 지원되지 않습니다. Microsoft Access에 대한 해결책은 다음과 같습니다.
+
 <hr>
+
 
 {% highlight ruby %}
 SELECT Count(*) AS DistinctCountries
